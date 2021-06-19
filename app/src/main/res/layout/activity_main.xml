@@ -1,18 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:addStatesFromChildren="true"
+    tools:context=".views.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <data>
+        <variable name="viewModel" type="com.example.fgcontroller.view_model.ViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etIP"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:ems="10"
+        android:hint="Insert IP"
+        android:inputType="textPersonName"
+        android:text="@={viewModel.ip}"
+        app:layout_constraintBottom_toTopOf="@+id/etPort"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/etPort"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:hint="Insert Port"
+        android:inputType="textPersonName"
+        android:text="@={viewModel.port}"
+        app:layout_constraintBottom_toTopOf="@+id/btConnect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.824" />
+
+        <Button
+            android:id="@+id/btConnect"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="120dp"
+            android:text="Connect"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <SeekBar
+            android:id="@+id/sbRudder"
+            style="@android:style/Widget.DeviceDefault.SeekBar"
+            android:layout_width="348dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="44dp"
+            android:max="2000"
+            android:progress="@={viewModel.rudder}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <SeekBar
+            android:id="@+id/sbThrottle"
+            style="@android:style/Widget.DeviceDefault.SeekBar"
+            android:layout_width="498dp"
+            android:layout_height="439dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="320dp"
+            android:max="1000"
+            android:progress="@={viewModel.throttle}"
+            android:rotation="90"
+            android:scrollY="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
