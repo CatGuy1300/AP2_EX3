@@ -31,12 +31,27 @@ public class FGModel {
         }).start();
     }
 
+    private void onDisconnect() {
+        Log.d("Dis","lala");
+        return;
+    }
+
     public void setRudder(double rudder) throws InterruptedException {
         if (out != null) {
             dispatchQueue.put(new Runnable() {
                 public void run() {
-                    out.print("set /controls/flight/aileron " + rudder + "\r\n");
-                    out.flush();
+                    try {
+                        if (FGClient.getInputStream().read() == -1 || !FGClient.isConnected()) {
+                            onDisconnect();
+                            return;
+                        }
+                        out.print("set /controls/flight/aileron " + rudder + "\r\n");
+                        out.flush();
+                    } catch (Exception e) {
+                        Log.d("Dis",e.getMessage());
+                        onDisconnect();
+                    }
+
                 }
             });
         }
@@ -53,11 +68,54 @@ public class FGModel {
         }
     }
 
+    public void setAileron(double aileron) throws InterruptedException {
+        if (out != null) {
+            dispatchQueue.put(new Runnable() {
+                public void run() {
+                    out.print("set /controls/flight/aileron " + aileron + "\r\n");
+                    out.flush();
+                }
+            });
+        }
+    }
+
+    public void setElevator(double elevator) throws InterruptedException {
+        if (out != null) {
+            dispatchQueue.put(new Runnable() {
+                public void run() {
+                    out.print("set /controls/flight/elevator " + elevator + "\r\n");
+                    out.flush();
+                }
+            });
+        }
+    }
+
     public void connect(final String ip, final String port, final Runnable onFail, final Runnable onSuccess, Runnable ifConnected) throws InterruptedException {
         if (out != null) {
             ifConnected.run();
             return;
         }
+        dispatchQueue.put(new Runnable() {
+            public void run() {
+                try {
+                    FGClient = new Socket();
+                    FGClient.connect(new InetSocketAddress(ip, Integer.valueOf(port)), 2 * 1000);
+                    out = new PrintWriter(FGClient.getOutputStream(), true);
+                } catch (Exception e) {
+                    FGClient = null;
+                    out = null;
+                }
+                if (FGClient == null) {
+                    onFail.run();
+                } else {
+                    onSuccess.run();
+                }
+            }
+        });
+    }
+
+    public void reconnect(final String ip, final String port, final Runnable onFail, final Runnable onSuccess) throws InterruptedException {
+
         dispatchQueue.put(new Runnable() {
             public void run() {
                 try {

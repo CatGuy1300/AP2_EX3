@@ -34,6 +34,7 @@ public class ViewModel {
     public void setRudder(int rudder) {
         this.rudder = rudder;
         try {
+            // normal to -1...1
             model.setRudder((double) rudder/1000 - 1);
         } catch (Exception e) {
 
@@ -48,6 +49,7 @@ public class ViewModel {
     public void setThrottle(int throttle) {
         this.throttle = throttle;
         try {
+            // normal to 0...1
             model.setThrottle((double) throttle / 1000);
         } catch (Exception e) {
 
@@ -55,8 +57,31 @@ public class ViewModel {
         Log.d("throttle", "set throttle to " + throttle);
     }
 
+    public void setAileron(double aileron) {
+        try {
+            model.setAileron(aileron);
+        } catch (Exception e) {
+
+        }
+        Log.d("aileron", "set aileron to " + aileron);
+    }
+
+    public void setElevator(double elevator) {
+        try {
+            model.setElevator(elevator);
+        } catch (Exception e) {
+
+        }
+        Log.d("elevator", "set elevator to " + elevator);
+    }
+
+
     public void connect(Runnable onFail, Runnable onSuccess, Runnable ifConnected) throws InterruptedException {
         model.connect(ip, port, onFail, onSuccess, ifConnected);
+    }
+
+    public void reconnect(Runnable onFail, Runnable onSuccess) throws InterruptedException {
+        model.reconnect(ip, port, onFail, onSuccess);
     }
 
     public void setPort(String port) {
