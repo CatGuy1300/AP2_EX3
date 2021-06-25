@@ -18,15 +18,6 @@ public class ViewModel {
         this.model = model;
     }
 
-    public String getIp() {
-        return ip;
-    }
-
-    public void setIp(String ip) {
-        this.ip = ip;
-        Log.d("ip", "set IP to " + ip);
-    }
-
     public int getRudder() {
         return rudder;
     }
@@ -40,6 +31,15 @@ public class ViewModel {
 
         }
         Log.d("rudder", "set rudder to " + rudder);
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+        Log.d("ip", "set IP to " + ip);
     }
 
     public int getThrottle() {

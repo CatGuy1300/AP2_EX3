@@ -31,27 +31,12 @@ public class FGModel {
         }).start();
     }
 
-    private void onDisconnect() {
-        Log.d("Dis","lala");
-        return;
-    }
-
     public void setRudder(double rudder) throws InterruptedException {
         if (out != null) {
             dispatchQueue.put(new Runnable() {
                 public void run() {
-                    try {
-                        if (FGClient.getInputStream().read() == -1 || !FGClient.isConnected()) {
-                            onDisconnect();
-                            return;
-                        }
                         out.print("set /controls/flight/aileron " + rudder + "\r\n");
                         out.flush();
-                    } catch (Exception e) {
-                        Log.d("Dis",e.getMessage());
-                        onDisconnect();
-                    }
-
                 }
             });
         }

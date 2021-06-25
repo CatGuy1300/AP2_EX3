@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         vm.setIp(preferences.getString(IP_KEY, ""));
         vm.setPort(preferences.getString(PORT_KEY, ""));
 
+        // set starting value
+        vm.setRudder(1000);
+
         // setting listener to joystick change
         binding.js.setListener((a, e)-> {vm.setAileron(a); vm.setElevator(e);});
 

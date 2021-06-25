@@ -72,11 +72,13 @@ public class Joystick extends View {
                 break;
 
         }
-        // normal to (-1...1)
-        double a = (x - (float) getWidth()/2) / ((float) getWidth()/2 - r);
-        double e = (y - (float) getHeight()/2) / ((float) getHeight()/2 - r);
-        listener.onChange(a, e);
-        return true;
+        if (listener != null) {
+            // normal to (-1...1)
+            double a = (x - (float) getWidth() / 2) / ((float) getWidth() / 2 - r);
+            double e = (y - (float) getHeight() / 2) / ((float) getHeight() / 2 - r);
+            listener.onChange(a, e);
+        }
+            return true;
     }
 
     public interface OnJoystickChangeListener {
