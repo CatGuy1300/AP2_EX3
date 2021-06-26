@@ -24,8 +24,9 @@ Clone this git repository into a directory in your computer.
 #### Running
 If you want to run FG manually, you should to it with the next settings:
 ```
---generic=socket,in,10,127.0.0.1,5400,tcp,playback_small
+--generic=socket,in,10,127.0.0.1,6400,tcp,playback_small
 ```
+(You can use different values for 127.0.0.1, 6400 for IP and port, but you should use these)
 Use an IDE which supports running android projects to open the project from the directory you cloned it into earlier. Now from your IDE, run the app.  
 
 ## Design
