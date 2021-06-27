@@ -8,13 +8,16 @@ In this exercise we coded a flight simulator control app.
 
 ## Files And Directories
 #### Directories
-There are 3 main Directories in the project:  
-
+There are some main Directories in the project:  
+1. model: There are the model's files
+2. view_model: there are the view_model's files
+3. views: there are the view's files
+4. res: there are resources, like layouts.
 #### Files
-The main files are the src code files, like the FlightModel.cs, MainWindow.cs, their xaml files, and dll files (like scottPlot)
+The main files are the src code files, like the FGModel.java,  ViewModel.java,  Joystick.java, MainActivity.java, and the xml for the MainActivity layout, activity_main.xml.
 
 ## Development
-This app was developed on android studio using java.
+This app was developed on android studio using java
 
 
 ## Installation and Running
@@ -30,7 +33,7 @@ If you want to run FG manually, you should to it with the next settings:
 Use an IDE which supports running android projects to open the project from the directory you cloned it into earlier. Now from your IDE, run the app.  
 
 ## Design
-You can see here our [UML diagram]()
+You can see here our [UML diagram](https://online.visual-paradigm.com/community/share/ap2-ex3-vpd-lkr0hgjxp)
 #### Model, VMs and Views (MVVM)
 The main architecture we use in the project is the MVVM architecture.
 
