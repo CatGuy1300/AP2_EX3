@@ -33,7 +33,7 @@ If you want to run FG manually, you should to it with the next settings:
 Use an IDE which supports running android projects to open the project from the directory you cloned it into earlier. Now from your IDE, run the app.  
 
 ## Design
-You can see here our [UML diagram](https://online.visual-paradigm.com/community/share/ap2-ex3-vpd-lkr0hgjxp)
+You can see here our [UML diagram](https://online.visual-paradigm.com/community/share/ap2-ex3-vpd-lkr0hgjxp) or [here](https://online.visual-paradigm.com/app/diagrams/#G18e4zO-XyvWYFPzMT15UmFuwRWdz7XwK_)
 #### Model, VMs and Views (MVVM)
 The main architecture we use in the project is the MVVM architecture.
 
