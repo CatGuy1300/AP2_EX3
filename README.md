@@ -14,7 +14,8 @@ There are some main Directories in the project:
 3. views: there are the view's files
 4. res: there are resources, like layouts.
 #### Files
-The main files are the src code files, like the FGModel.java,  ViewModel.java,  Joystick.java, MainActivity.java, and the xml for the MainActivity layout, activity_main.xml.
+The main files are the src code files, like the FGModel.java,  ViewModel.java,  Joystick.java, MainActivity.java, and the xml for the MainActivity layout, activity_main.xml.  
+There are also files that are part of every android project.
 
 ## Development
 This app was developed on android studio using java
@@ -35,7 +36,8 @@ Use an IDE which supports running android projects to open the project from the 
 ## Design
 You can see here our [UML diagram](https://online.visual-paradigm.com/community/share/ap2-ex3-vpd-lkr0hgjxp) or [here](https://online.visual-paradigm.com/app/diagrams/#G18e4zO-XyvWYFPzMT15UmFuwRWdz7XwK_)
 #### Model, VMs and Views (MVVM)
-The main architecture we use in the project is the MVVM architecture.
+The main architecture we use in the project is the MVVM architecture.  
+There is data binding between the view (MainActivity) and the ViewModel, the View command the ViewModel to change its, and it commands the Model, which sends a message to the FG. The Model notifies the VM on events, which notifies the View, events like that the Model connected to FG.
 
 
 
