@@ -4,7 +4,8 @@ In this exercise we coded a flight simulator control app.
 ## Usage And Features
 
 #### Special Features ####
-
+1. IP and Port are saved after clicking on "connect"
+2. You can click "connect" again to try and reconnect if need to
 
 ## Files And Directories
 #### Directories
@@ -42,3 +43,4 @@ There is data binding between the view (MainActivity) and the ViewModel, the Vie
 
 
 ## Video
+[video](https://youtu.be/7DPictQIYhM)
